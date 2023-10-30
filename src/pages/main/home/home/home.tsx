@@ -59,7 +59,7 @@ export function HomeSlide({ item, navigation }: Props) {
                 fontWeight: "700",
               }}
             >
-              Discover Project
+              Discover Artist
             </Typography>
             <Typography
               sx={{
@@ -172,6 +172,42 @@ export function HomeSlide({ item, navigation }: Props) {
                 />
               </Box>
             </Box>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            p: theme.spacing(2, 0),
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              sx={{
+                flex: 1,
+                fontSize: 18,
+                lineHeight: "28px",
+                fontWeight: "700",
+              }}
+            >
+              Completed Missions
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                lineHeight: "16px",
+                fontWeight: "500",
+                color: youhaInverseGrey[400],
+              }}
+            >
+              View all
+            </Typography>
+          </Box>
+          <Box>
+
           </Box>
         </Box>
         <Box sx={{ height: 1000 }} />
