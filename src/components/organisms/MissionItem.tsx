@@ -7,6 +7,7 @@ import { comma, getDiffDay } from "../../utils";
 import Typo from "../atoms/Typo";
 import VideoPlayer from "./VideoPlayer";
 import { ArtistProps } from "./ArtistItem";
+import User from "../atoms/User";
 
 export type MissionProps = {
   id: string;
@@ -203,6 +204,59 @@ export default function MissionItem({
             </Typography>
           </Box>
         </Box>
+        {type === "completed" && (
+          <Box
+            sx={{
+              p: theme.spacing(2, 2, 4, 2),
+              width: "100%",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: 14,
+                lineHeight: "20px",
+                fontWeight: "700",
+                textAlign: "center",
+              }}
+            >
+              Contributers
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                m: theme.spacing(2, 0, 0, -1),
+              }}
+            >
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+                return (
+                  <User
+                    key={index}
+                    item={{
+                      thumbnail: `https://source.unsplash.com/random/?${index}`,
+                    }}
+                    sx={{
+                      m: theme.spacing(0, -1, 0, 0),
+                    }}
+                    size={32}
+                  />
+                );
+              })}
+            </Box>
+            <Typography
+              sx={{
+                fontSize: 12,
+                lineHeight: "16px",
+                color: youhaInverseGrey[400],
+                textAlign: "center",
+                m: theme.spacing(2, 0, 0, 0),
+              }}
+            >
+              Thanks for all donations!
+            </Typography>
+          </Box>
+        )}
       </ButtonBase>
     </Box>
   );

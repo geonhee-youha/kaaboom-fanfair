@@ -145,22 +145,22 @@ const completedMissions: MissionProps[] = [
     dueDate: new Date("2023-10-24"),
     src: `/temp/videos/1.mp4`,
   },
-  {
-    id: "5",
-    artist: artists[1],
-    user: {
-      id: "1",
-      name: "Jinho You",
-      thumbnail: "/temp/user/1.webp",
-    },
-    title: "Cook Kimchi-jigae for me please",
-    amount: {
-      goal: 30000,
-      current: 30000,
-    },
-    dueDate: new Date("2023-10-24"),
-    src: `/temp/videos/1.mp4`,
-  },
+//   {
+//     id: "5",
+//     artist: artists[1],
+//     user: {
+//       id: "1",
+//       name: "Jinho You",
+//       thumbnail: "/temp/user/1.webp",
+//     },
+//     title: "Cook Kimchi-jigae for me please",
+//     amount: {
+//       goal: 30000,
+//       current: 30000,
+//     },
+//     dueDate: new Date("2023-10-24"),
+//     src: `/temp/videos/1.mp4`,
+//   },
 ];
 let comingVideo: any;
 let comingVideoElement: any;
