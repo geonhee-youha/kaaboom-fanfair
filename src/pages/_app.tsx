@@ -77,28 +77,28 @@ function MyApp(props: MyAppProps) {
     // setMessageSlide({ open: true });
   };
   const [isWifi, setIsWifi] = useState<boolean>(false);
-  useEffect(() => {
-    // 처음 앱 킬때마다 서버에 devicetoken fetch
-    sendMessage({ name: "deviceTokenUpdateToServer", body: "" });
-    sendMessage({ name: "getNotiData", body: "" });
-    sendMessage({ name: "isWifi", body: "" });
-    // 메세지 Noti Message 클릭해서 들어왔는지 체크
-    window.isWifi = getiOSIsWifi; //iOS
-    window.getNotiData = (d: any) => getiOSPushMessage(d, goMessagesPush); //iOS
+  // useEffect(() => {
+  //   // 처음 앱 킬때마다 서버에 devicetoken fetch
+  //   sendMessage({ name: "deviceTokenUpdateToServer", body: "" });
+  //   sendMessage({ name: "getNotiData", body: "" });
+  //   sendMessage({ name: "isWifi", body: "" });
+  //   // 메세지 Noti Message 클릭해서 들어왔는지 체크
+  //   window.isWifi = getiOSIsWifi; //iOS
+  //   window.getNotiData = (d: any) => getiOSPushMessage(d, goMessagesPush); //iOS
 
-    window.addEventListener("getNotiData", (d) =>
-      getAndroidPushMessage(d, goMessagesPush)
-    ); //And
-    window.addEventListener("isWifi", (d) => getAndroidIsWifi(d, setIsWifi)); //And
-    return () => {
-      window.removeEventListener("getNotiData", (d) =>
-        getAndroidPushMessage(d, goMessagesPush)
-      );
-      window.removeEventListener("isWifi", (d) =>
-        getAndroidIsWifi(d, setIsWifi)
-      );
-    };
-  }, []);
+  //   window.addEventListener("getNotiData", (d) =>
+  //     getAndroidPushMessage(d, goMessagesPush)
+  //   ); //And
+  //   window.addEventListener("isWifi", (d) => getAndroidIsWifi(d, setIsWifi)); //And
+  //   return () => {
+  //     window.removeEventListener("getNotiData", (d) =>
+  //       getAndroidPushMessage(d, goMessagesPush)
+  //     );
+  //     window.removeEventListener("isWifi", (d) =>
+  //       getAndroidIsWifi(d, setIsWifi)
+  //     );
+  //   };
+  // }, []);
   return (
     <CacheProvider value={emotionCache}>
       <Head>
