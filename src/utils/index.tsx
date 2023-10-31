@@ -334,3 +334,33 @@ export function round(value: number, precision: number) {
   var multiplier = Math.pow(10, precision || 0);
   return Math.round(value * multiplier) / multiplier;
 }
+
+export const formatTimer = (sec: number) => {
+  let hours = Math.floor(sec / 3600); // get hours
+  let minutes = Math.floor((sec - hours * 3600) / 60); // get minutes
+  let seconds = Math.floor(sec - hours * 3600 - minutes * 60); //  get seconds
+  // add 0 if value < 10; Example: 2 => 02
+  let stringHours = hours.toString();
+  let stringMinuites = minutes.toString();
+  let stringSeconds = seconds.toString();
+  if (hours < 10) {
+    stringHours = '0' + stringHours;
+  }
+  if (minutes < 10) {
+    stringMinuites = '0' + stringMinuites;
+  }
+  if (seconds < 10) {
+    stringSeconds = '0' + stringSeconds;
+  }
+  return stringMinuites + ':' + stringSeconds; // Return is HH : MM : SS
+};
+
+export function getDiffDay(date: Date) {
+  const todayTime = new Date();
+  const diff = date.getTime() - todayTime.getTime();
+  const diffDay = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const diffHour = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const diffMin = Math.floor((diff / (1000 * 60)) % 60);
+  const diffSec = Math.floor((diff / 1000) % 60);
+  return diffDay > 0 ? `D-${diffDay}` : `Completed`;
+}

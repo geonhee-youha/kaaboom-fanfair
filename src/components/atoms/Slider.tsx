@@ -119,6 +119,7 @@ function Slider({
               bottom: 0,
               pt: "calc(var(--sait) + 56px)",
               pb: `calc(${pb} + ${homeSlide ? 64 : 0}px)`,
+              // pb: `calc(${pb} + ${homeSlide ? 0 : 0}px)`,
             }}
             className={`Slider ${item.key}`}
           >

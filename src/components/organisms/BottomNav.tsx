@@ -43,14 +43,13 @@ function BottomNav({ slides, navigation }: Props) {
         right: 0,
         bottom: 0,
         zIndex: lastSlide ? (lastSlide.index + 1) * 2 + 3 : 2,
-        background: "#101013",
       }}
       className="Nav"
     >
       <Container
         sx={{
           transition: "all 0.5s ease",
-          p: theme.spacing(0),
+          p: `0 !important`,
         }}
         className="BottomNavContainer"
       >
