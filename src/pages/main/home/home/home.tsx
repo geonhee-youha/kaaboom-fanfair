@@ -327,73 +327,6 @@ export function HomeSlide({ item, navigation }: Props) {
                 fontWeight: "700",
               }}
             >
-              Hot Artists
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: 12,
-                lineHeight: "16px",
-                fontWeight: "500",
-                color: youhaInverseGrey[400],
-              }}
-            >
-              View all
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              m: theme.spacing(0, -3),
-            }}
-          >
-            <Box
-              sx={{
-                width: "100%",
-                overflowX: "scroll",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <Box
-                sx={{
-                  p: theme.spacing(2, 3),
-                  display: "flex",
-                  alignItems: "center",
-                  "& > *:not(:nth-of-type(1))": {
-                    m: theme.spacing(0, 0, 0, 1),
-                  },
-                }}
-              >
-                {artists.map((item, index) => {
-                  return <ArtistItem key={index} item={item} />;
-                })}
-                <Box
-                  sx={{
-                    minWidth: 24,
-                    height: 24,
-                  }}
-                />
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            p: theme.spacing(2, 0),
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{
-                flex: 1,
-                fontSize: 18,
-                lineHeight: "28px",
-                fontWeight: "700",
-              }}
-            >
               Urgent Fundraising
             </Typography>
             <Typography
@@ -431,6 +364,73 @@ export function HomeSlide({ item, navigation }: Props) {
               >
                 {missions.map((item, index) => {
                   return <MissionItem key={index} item={item} />;
+                })}
+                <Box
+                  sx={{
+                    minWidth: 24,
+                    height: 24,
+                  }}
+                />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            p: theme.spacing(2, 0),
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              sx={{
+                flex: 1,
+                fontSize: 18,
+                lineHeight: "28px",
+                fontWeight: "700",
+              }}
+            >
+              Hot Artists
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 12,
+                lineHeight: "16px",
+                fontWeight: "500",
+                color: youhaInverseGrey[400],
+              }}
+            >
+              View all
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              m: theme.spacing(0, -3),
+            }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                overflowX: "scroll",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <Box
+                sx={{
+                  p: theme.spacing(2, 3),
+                  display: "flex",
+                  alignItems: "center",
+                  "& > *:not(:nth-of-type(1))": {
+                    m: theme.spacing(0, 0, 0, 1),
+                  },
+                }}
+              >
+                {artists.map((item, index) => {
+                  return <ArtistItem key={index} item={item} />;
                 })}
                 <Box
                   sx={{

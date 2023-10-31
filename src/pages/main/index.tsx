@@ -27,6 +27,9 @@ import Pusher from "pusher-js";
 import { meState } from "../../recoil/user";
 import useAxios, { useCustomSWR } from "../../hooks/swrs";
 import { HomeSlide } from "./home/home/home";
+import { ExploreSlide } from "./home/explore/home";
+import { FavoriteSlide } from "./home/favorite/home";
+import { AccountSlide } from "./home/account/home";
 
 export default function Main() {
   const [me, setMe] = useRecoilState(meState);
@@ -187,11 +190,11 @@ function Slides({ nav, stack, slides, navigation }: SlidesProps) {
             item.stack === "home" ? (
               <HomeSlide key={index} item={item} navigation={navigation} />
             ) : item.stack === "explore" ? (
-              <></>
+              <ExploreSlide key={index} item={item} navigation={navigation} />
             ) : item.stack === "favorite" ? (
-              <></>
+              <FavoriteSlide key={index} item={item} navigation={navigation} />
             ) : item.stack === "account" ? (
-              <></>
+              <AccountSlide key={index} item={item} navigation={navigation} />
             ) : (
               <></>
             )
