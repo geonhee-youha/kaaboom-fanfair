@@ -16,6 +16,8 @@ export default function VideoPlayer({
   src: string;
 }) {
   const videoRef = useRef<any>(null);
+  const playerRef = useRef<any>(null);
+  const boxRef = useRef<any>(null);
   const [playing, setPlaying] = useState<boolean>(false);
   const [muted, setMuted] = useState<boolean>(true);
   const [controllerOpen, setControllerOpen] = useState<boolean>(false);
@@ -30,7 +32,7 @@ export default function VideoPlayer({
     }
   }, [focusedIndex, index, focused]);
   useEffect(() => {
-    if (playing && controllerOpen && !changing && !buffer) {
+    if (controllerOpen && !changing && !buffer) {
       const timerId = setTimeout(() => {
         setControllerOpen(false);
       }, 3000);
@@ -38,7 +40,17 @@ export default function VideoPlayer({
     }
     return () => {};
   }, [playing, controllerOpen, changing]);
-  const player = useRef<any>(null);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  const handleClickOutside = (event: any) => {
+    if (boxRef && !boxRef.current.contains(event.target)) {
+      setControllerOpen(false);
+    }
+  };
   const [duration, setDuration] = useState<number>(0);
   const [playedSeconds, setPlayedSeconds] = useState<number>(0);
   const [loadedSeconds, setLoadedSeconds] = useState<number>(0);
@@ -58,7 +70,7 @@ export default function VideoPlayer({
     value: any
   ) => {
     setChanging(false);
-    player.current?.seekTo(value);
+    playerRef.current?.seekTo(value);
   };
   const [buffer, setBuffer] = useState<boolean>(false);
   const onBuffer = () => {
@@ -74,6 +86,7 @@ export default function VideoPlayer({
   return (
     <>
       <Box
+        ref={boxRef}
         className={`Coming ${index} ${
           focusedIndex === index && focused ? "focus" : ""
         }`}
@@ -101,6 +114,9 @@ export default function VideoPlayer({
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "flex-start",
+          "& *": {
+            cursor: controllerOpen ? "initial" : "pointer",
+          },
         }}
       >
         <Box
@@ -113,7 +129,7 @@ export default function VideoPlayer({
           }}
         >
           <Video
-            videoRef={player}
+            videoRef={playerRef}
             playsinline
             playing={playing}
             onDuration={onDuration}

@@ -10,10 +10,18 @@ import {
 } from "../types/modal";
 import { atom } from "recoil";
 import { DialogProps, dialogDefaultProps, DrawerProps, drawerDefaultProps } from "../types/index";
+
 export const dialogState = atom<DialogProps>({
   key: "modal/dialog",
   default: dialogDefaultProps,
 });
+
+export const missionModalState = atom<DialogProps>({
+  key: "modal/mission",
+  default: dialogDefaultProps,
+});
+
+//체크 필요
 export const loaderState = atom<{ open: boolean }>({
   key: "modal/loader",
   default: {
@@ -50,22 +58,4 @@ export const postCodeState = atom<DialogProps>({
 export const signupModalState = atom<DialogProps>({
   key: "modal/signupModalState",
   default: dialogDefaultProps,
-});
-
-//위 검증 필요
-export const coachingModalState = atom<CoachingModalProps>({
-  key: "modal/coachingModalState",
-  default: coachingModalDefaultProps,
-});
-export const intimacyModalState = atom<IntimacyModalProps>({
-  key: "modal/intimacyModalState",
-  default: intimacyModalDefaultProps,
-});
-export const filterDrawerState = atom<FilterDrawerProps>({
-  key: "modal/filterDrawerState",
-  default: filterDrawerDefaultProps,
-});
-export const dateModalState = atom<DateModalProps>({
-  key: "modal/dateModalState",
-  default: dateModalDefaultProps,
 });

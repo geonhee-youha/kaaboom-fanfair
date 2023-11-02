@@ -58,13 +58,14 @@ function BottomNav({ slides, navigation }: Props) {
           onChange={handleChange}
           sx={{
             minHeight: 64,
-            borderTop: `1px solid ${youhaGrey[900]}`,
-            borderLeft: `1px solid ${youhaGrey[900]}`,
-            borderRight: `1px solid ${youhaGrey[900]}`,
+            borderTop: `1px solid ${youhaInverseGrey[100]}`,
+            borderLeft: `1px solid ${youhaInverseGrey[100]}`,
+            borderRight: `1px solid ${youhaInverseGrey[100]}`,
             backgroundColor: `#17171c`,
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,
             p: theme.spacing(0, 0, `calc(var(--saib))`, 0),
+            overflow: "hidden",
           }}
         >
           {bottomTabs.map((item, index) => {
@@ -73,14 +74,15 @@ function BottomNav({ slides, navigation }: Props) {
             return (
               <BottomNavigationAction
                 key={index}
+                disableRipple={item.value === "upload"}
                 label={
                   <Typography
                     sx={{
-                      m: theme.spacing(0.5, 0, 0, 0),
-                      fontSize: 12,
-                      lineHeight: "16px",
-                      fontWeight: "700",
+                      fontSize: 10,
+                      lineHeight: "14px",
+                      fontWeight: "500 !important",
                       color: color,
+                      display: item.value === "upload" ? "none" : "initial",
                     }}
                   >
                     {item.label}
@@ -88,30 +90,41 @@ function BottomNav({ slides, navigation }: Props) {
                 }
                 value={item.value}
                 icon={
-                  item.name === "users" ? (
-                    <Box
-                      sx={{
-                        borderRadius: "50% !important",
-                        overflow: "hidden",
-                        width: 28,
-                        height: 28,
-                        border: `2px solid ${color}`,
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <User item={user} size={20} />
-                    </Box>
-                  ) : (
-                    <Icon
-                      // prefix={active ? "fas" : "far"}
-                      prefix="fas"
-                      name={item.name}
-                      size={20}
-                      color={color}
-                    />
-                  )
+                  <Box
+                    sx={{
+                      m: theme.spacing(
+                        0,
+                        0,
+                        item.value === "upload" ? 0 : 0.25,
+                        0
+                      ),
+                    }}
+                  >
+                    {item.name === "users" ? (
+                      <Box
+                        sx={{
+                          borderRadius: "50% !important",
+                          overflow: "hidden",
+                          width: 28,
+                          height: 28,
+                          border: `2px solid ${color}`,
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <User item={user} size={20} />
+                      </Box>
+                    ) : (
+                      <Icon
+                        // prefix={active ? "fas" : "far"}
+                        prefix="fas"
+                        name={item.name}
+                        size={item.value === "upload" ? 40 : 20}
+                        color={color}
+                      />
+                    )}
+                  </Box>
                 }
                 sx={{
                   minHeight: 56,

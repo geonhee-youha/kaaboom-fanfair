@@ -30,6 +30,7 @@ export default function FilterItem({
         opacity: shown ? 1 : 0,
         transition: "all 0.5s ease",
         overflow: "visible",
+        cursor: "pointer",
       }}
     >
       <Box

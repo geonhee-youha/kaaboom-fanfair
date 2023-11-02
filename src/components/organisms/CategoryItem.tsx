@@ -32,6 +32,7 @@ export default function CategoryItem({ item }: { item: CategoryProps }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        cursor: "pointer",
       }}
     >
       <ButtonBase

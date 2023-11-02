@@ -17,42 +17,44 @@ import MissionItem, {
 import CategoryItem, {
   CategoryProps,
 } from "../../../../components/organisms/CategoryItem";
-import ArtistItem, { ArtistProps } from "../../../../components/organisms/ArtistItem";
+import ArtistItem, {
+  ArtistProps,
+} from "../../../../components/organisms/ArtistItem";
 
-const categories: CategoryProps[] = [
+export const categories: CategoryProps[] = [
   {
-    label: "Idol",
+    label: "아이돌",
     value: "idol",
     icon: "stars",
     color: purple[500],
   },
   {
-    label: "Actor",
+    label: "배우",
     value: "actor",
     icon: "user-tie-hair",
     color: orange[500],
   },
   {
-    label: "Singer",
+    label: "가수",
     value: "singer",
     icon: "microphone-stand",
     color: cyan[500],
   },
   {
-    label: "Influencer",
+    label: "인플루언서",
     value: "influencer",
     icon: "circle-nodes",
     color: blue[500],
   },
   {
-    label: "Athlete",
+    label: "스포츠",
     value: "athlete",
     icon: "medal",
     color: yellow[500],
   },
 ];
 
-const artists: ArtistProps[] = [
+export const artists: ArtistProps[] = [
   {
     id: "1",
     name: "D.O.",
@@ -80,88 +82,74 @@ const artists: ArtistProps[] = [
   },
 ];
 
-const missions: MissionProps[] = [
+export const missions: MissionProps[] = [
   {
     id: "1",
+    state: "opened",
     artist: artists[0],
     user: {
       id: "1",
       name: "Jinho You",
       thumbnail: "/temp/user/you.webp",
     },
-    title: "Cook Kimchi-jigae for me please",
+    title: "팔레스타인 하마스 난민 기부 미션",
     amount: {
-      goal: 30000,
-      current: 8000,
+      goal: 30000000,
+      current: 8000000,
     },
     dueDate: new Date("2023-12-01"),
   },
   {
     id: "2",
+    state: "opened",
     artist: artists[1],
     user: {
       id: "1",
       name: "Jinho You",
       thumbnail: "/temp/user/you.webp",
     },
-    title: "Cook Kimchi-jigae for me please",
+    title: "팔레스타인 하마스 난민 기부 미션",
     amount: {
-      goal: 30000,
-      current: 12000,
+      goal: 30000000,
+      current: 6000000,
     },
     dueDate: new Date("2023-12-01"),
   },
   {
     id: "3",
+    state: "opened",
     artist: artists[2],
     user: {
       id: "1",
       name: "Jinho You",
       thumbnail: "/temp/user/you.webp",
     },
-    title: "Cook Kimchi-jigae for me please",
+    title: "팔레스타인 하마스 난민 기부 미션",
     amount: {
-      goal: 30000,
-      current: 12000,
+      goal: 30000000,
+      current: 6000000,
     },
     dueDate: new Date("2023-12-01"),
   },
-];
-
-const completedMissions: MissionProps[] = [
   {
     id: "4",
+    state: "completed",
     artist: artists[0],
     user: {
       id: "1",
       name: "Jinho You",
       thumbnail: "/temp/user/1.webp",
     },
-    title: "Cook Kimchi-jigae for me please",
+    title: "군장병 맹호부대 황금마차 지원 프로젝트",
     amount: {
-      goal: 30000,
-      current: 30000,
+      goal: 10000000,
+      current: 24638000,
     },
     dueDate: new Date("2023-10-24"),
     src: `/temp/videos/1.mp4`,
   },
-//   {
-//     id: "5",
-//     artist: artists[1],
-//     user: {
-//       id: "1",
-//       name: "Jinho You",
-//       thumbnail: "/temp/user/1.webp",
-//     },
-//     title: "Cook Kimchi-jigae for me please",
-//     amount: {
-//       goal: 30000,
-//       current: 30000,
-//     },
-//     dueDate: new Date("2023-10-24"),
-//     src: `/temp/videos/1.mp4`,
-//   },
 ];
+
 let comingVideo: any;
 let comingVideoElement: any;
 let comingElement: any;
@@ -185,6 +173,7 @@ export function HomeSlide({ item, navigation }: Props) {
       _.findLastIndex(slides, (el) => el.show === true && el.name === "home")
     ];
   const active = currentSlide.stack === "home" && currentSlide.name === "home";
+  const slide = item;
   const [loaded, setLoaded] = useState<string[]>([]);
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
   const [focused, setFocused] = useState<boolean>(false);
@@ -255,23 +244,25 @@ export function HomeSlide({ item, navigation }: Props) {
             <Typography
               sx={{
                 flex: 1,
-                fontSize: 18,
-                lineHeight: "28px",
+                fontSize: 16,
+                lineHeight: "24px",
                 fontWeight: "700",
               }}
             >
-              Discover Artist
+              아티스트 찾기
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 12,
-                lineHeight: "16px",
-                fontWeight: "500",
-                color: youhaInverseGrey[400],
-              }}
-            >
-              View all
-            </Typography>
+            <ButtonBase disableRipple>
+              <Typography
+                sx={{
+                  fontSize: 12,
+                  lineHeight: "16px",
+                  fontWeight: "500",
+                  color: youhaInverseGrey[400],
+                }}
+              >
+                전체보기
+              </Typography>
+            </ButtonBase>
           </Box>
           <Box
             sx={{
@@ -300,7 +291,7 @@ export function HomeSlide({ item, navigation }: Props) {
                 })}
                 <Box
                   sx={{
-                    minWidth: 24,
+                    minWidth: 16,
                     height: 24,
                   }}
                 />
@@ -322,23 +313,25 @@ export function HomeSlide({ item, navigation }: Props) {
             <Typography
               sx={{
                 flex: 1,
-                fontSize: 18,
-                lineHeight: "28px",
+                fontSize: 16,
+                lineHeight: "24px",
                 fontWeight: "700",
               }}
             >
-              Urgent Fundraising
+              실시간 인기 미션
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 12,
-                lineHeight: "16px",
-                fontWeight: "500",
-                color: youhaInverseGrey[400],
-              }}
-            >
-              View all
-            </Typography>
+            <ButtonBase disableRipple>
+              <Typography
+                sx={{
+                  fontSize: 12,
+                  lineHeight: "16px",
+                  fontWeight: "500",
+                  color: youhaInverseGrey[400],
+                }}
+              >
+                전체보기
+              </Typography>
+            </ButtonBase>
           </Box>
           <Box
             sx={{
@@ -362,12 +355,16 @@ export function HomeSlide({ item, navigation }: Props) {
                   },
                 }}
               >
-                {missions.map((item, index) => {
-                  return <MissionItem key={index} item={item} />;
-                })}
+                {_.filter(missions, (el) => el.state === "opened").map(
+                  (item, index) => {
+                    return (
+                      <MissionItem key={index} item={item} slide={slide} />
+                    );
+                  }
+                )}
                 <Box
                   sx={{
-                    minWidth: 24,
+                    minWidth: 16,
                     height: 24,
                   }}
                 />
@@ -389,23 +386,25 @@ export function HomeSlide({ item, navigation }: Props) {
             <Typography
               sx={{
                 flex: 1,
-                fontSize: 18,
-                lineHeight: "28px",
+                fontSize: 16,
+                lineHeight: "24px",
                 fontWeight: "700",
               }}
             >
-              Hot Artists
+              화제의 신규 아티스트
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 12,
-                lineHeight: "16px",
-                fontWeight: "500",
-                color: youhaInverseGrey[400],
-              }}
-            >
-              View all
-            </Typography>
+            <ButtonBase disableRipple>
+              <Typography
+                sx={{
+                  fontSize: 12,
+                  lineHeight: "16px",
+                  fontWeight: "500",
+                  color: youhaInverseGrey[400],
+                }}
+              >
+                전체보기
+              </Typography>
+            </ButtonBase>
           </Box>
           <Box
             sx={{
@@ -434,7 +433,7 @@ export function HomeSlide({ item, navigation }: Props) {
                 })}
                 <Box
                   sx={{
-                    minWidth: 24,
+                    minWidth: 16,
                     height: 24,
                   }}
                 />
@@ -456,23 +455,25 @@ export function HomeSlide({ item, navigation }: Props) {
             <Typography
               sx={{
                 flex: 1,
-                fontSize: 18,
-                lineHeight: "28px",
+                fontSize: 16,
+                lineHeight: "24px",
                 fontWeight: "700",
               }}
             >
-              Completed Missions
+              최근 성공한 미션
             </Typography>
-            <Typography
-              sx={{
-                fontSize: 12,
-                lineHeight: "16px",
-                fontWeight: "500",
-                color: youhaInverseGrey[400],
-              }}
-            >
-              View all
-            </Typography>
+            <ButtonBase disableRipple>
+              <Typography
+                sx={{
+                  fontSize: 12,
+                  lineHeight: "16px",
+                  fontWeight: "500",
+                  color: youhaInverseGrey[400],
+                }}
+              >
+                전체보기
+              </Typography>
+            </ButtonBase>
           </Box>
           <Box
             sx={{
@@ -480,16 +481,17 @@ export function HomeSlide({ item, navigation }: Props) {
               width: "100%",
             }}
           >
-            {completedMissions.map((item, index) => (
-              <MissionItem
-                type="completed"
-                key={index}
-                item={item}
-                index={index}
-                focusedIndex={focusedIndex}
-                focused={focused}
-              />
-            ))}
+            {_.filter(missions, (el) => el.state === "completed").map(
+              (item, index) => (
+                <MissionItem
+                  key={index}
+                  item={item}
+                  index={index}
+                  focusedIndex={focusedIndex}
+                  focused={focused}
+                />
+              )
+            )}
           </Box>
         </Box>
       </Container>

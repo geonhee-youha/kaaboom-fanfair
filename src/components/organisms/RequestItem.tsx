@@ -159,7 +159,7 @@ export default function RequestItem({
                   fontWeight: "700",
                 }}
               >
-                {`$${comma(price)}.00`}
+                {`₩${comma(price)}`}
               </Typography>
             </Box>
             <Box>

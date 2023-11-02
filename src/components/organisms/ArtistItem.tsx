@@ -30,6 +30,7 @@ export default function ArtistItem({ item }: { item: ArtistProps }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        cursor: "pointer",
       }}
     >
       <ButtonBase
@@ -48,8 +49,8 @@ export default function ArtistItem({ item }: { item: ArtistProps }) {
       </ButtonBase>
       <Typography
         sx={{
-          fontSize: 14,
-          lineHeight: "20px",
+          fontSize: 12,
+          lineHeight: "16px",
           textAlign: "center",
           m: theme.spacing(1.5, 0, 0, 0),
           fontWeight: "500",

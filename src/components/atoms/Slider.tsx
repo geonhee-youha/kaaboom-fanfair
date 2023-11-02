@@ -20,6 +20,7 @@ type Props = {
   sx?: SxProps;
   backgroundColor?: string;
   direction?: "left" | "right" | "up" | "down" | undefined;
+  headerTrans?: boolean;
 };
 export default memo(Slider);
 function Slider({
@@ -33,6 +34,7 @@ function Slider({
   sx,
   backgroundColor,
   direction,
+  headerTrans
 }: Props) {
   const homeSlide = item.nav === "main" && item.name === "home";
   const { viewportHeight, offsetTop, pb } = useViewportSize();
@@ -117,7 +119,7 @@ function Slider({
               left: 0,
               right: 0,
               bottom: 0,
-              pt: "calc(var(--sait) + 56px)",
+              pt: headerTrans ? 0 : "calc(var(--sait) + 56px)",
               pb: `calc(${pb} + ${homeSlide ? 64 : 0}px)`,
               // pb: `calc(${pb} + ${homeSlide ? 0 : 0}px)`,
             }}

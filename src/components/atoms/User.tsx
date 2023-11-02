@@ -21,20 +21,17 @@ export default function User({
     <Box
       onClick={onClick}
       sx={{
+        position: "relative",
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        overflow: "hidden",
+        backgroundColor: `#17171c`,
+        border: `1px solid ${youhaInverseGrey[100]}`,
         ...sx,
       }}
     >
-      <Visual
-        src={item.thumbnail}
-        sx={{
-          width: size,
-          height: size,
-          borderRadius: "50%",
-          overflow: "hidden",
-          backgroundColor: `#17101c`,
-          border: `1px solid ${youhaInverseGrey[200]}`,
-        }}
-      />
+      <Visual src={item.thumbnail} absolute />
     </Box>
   ) : (
     <Box
@@ -49,7 +46,7 @@ export default function User({
             : item.gender === "M"
             ? pink["A400"]
             : deepPurple["A400"],
-        border: `1px solid ${youhaInverseGrey[200]}`,
+        border: `1px solid ${youhaInverseGrey[100]}`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

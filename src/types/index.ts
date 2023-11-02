@@ -32,6 +32,7 @@ export const inputDefaultProps = {
 
 export type DialogProps = {
   open: boolean;
+  id?: string;
   title: React.ReactNode;
   content: React.ReactNode;
   pathname: string;
@@ -53,10 +54,13 @@ export type DialogProps = {
   children?: React.ReactNode;
   full?: boolean;
   order?: boolean;
+  zIndex?: number,
+  type?: string,
 };
 
 export const dialogDefaultProps = {
   open: false,
+  id: '',
   title: "",
   content: "",
   pathname: "/",
@@ -65,12 +69,12 @@ export const dialogDefaultProps = {
     show: true,
     title: "취소",
     disabled: false,
-    onClick: () => {},
+    onClick: () => { },
   },
   confirm: {
     title: "확인",
-    onClick: () => {},
-    onConfirm: () => {},
+    onClick: () => { },
+    onConfirm: () => { },
   },
   value: "",
 };

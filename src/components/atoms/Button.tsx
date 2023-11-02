@@ -62,7 +62,7 @@ export default function Button({
         "&:hover": {
           opacity: type === "outlined" ? 0.7 : 1,
         },
-        minHeight: 40,
+        minHeight: 44,
         p: theme.spacing(0, 2),
         "&.lg": {
           minHeight: 48,
@@ -71,7 +71,7 @@ export default function Button({
           p: theme.spacing(1, 2),
         },
         "&.sm": {
-          minHeight: 32,
+          minHeight: 36,
           p: theme.spacing(0, 1.5),
           fontSize: 12,
           lineHeight: "16px",

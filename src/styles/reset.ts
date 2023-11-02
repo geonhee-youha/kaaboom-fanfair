@@ -201,7 +201,7 @@ const reset = css`
   }
   input {
     /* font-family: 'Montserrat', sans-serif !important; */
-    font-family: 'Poppins', Helvetica, sans-serif !important;
+    font-family: 'TheJamsil', 'Poppins', Helvetica, sans-serif !important;
     font-size: 16px;
     color: #ffffff;
     vertical-align: middle;
@@ -213,7 +213,7 @@ const reset = css`
     font-size: 17px;
     color: #ffffff;
     vertical-align: middle;
-    font-family: 'Poppins', Helvetica, sans-serif !important;
+    font-family: 'TheJamsil', 'Poppins', Helvetica, sans-serif !important;
   }
   a,
   a:link,
@@ -284,14 +284,7 @@ const reset = css`
     text-size-adjust: 100%;
   }
   /* 사파리 누를때 줌 안되게 */
-  * {
-     -webkit-touch-callout: none;
-     -webkit-user-select: none;
-     -khtml-user-select: none;
-     -moz-user-select: none;
-     -ms-user-select: none;
-     user-select: none;
-   }
+ 
    ::-moz-scrollbar {
      display: none !important;
    }
@@ -374,7 +367,7 @@ const reset = css`
   }
   html,
   body {
-    font-family: "Poppins", Helvetica, sans-serif;
+    font-family: 'TheJamsil', "Poppins", Helvetica, sans-serif;
   }
   #__next {
     width: 100%;

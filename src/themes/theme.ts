@@ -62,7 +62,16 @@ export const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          fontFamily: `"Poppins", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo" !important`,
+          fontFamily: `'TheJamsil', "Poppins", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo" !important`,
+          color: '#ffffff',
+          transition: `all 0.5s ease`
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontFamily: `'TheJamsil', "Poppins", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo" !important`,
           color: '#ffffff',
           transition: `all 0.5s ease`
         },
@@ -80,7 +89,7 @@ export const theme = createTheme({
           },
           transition: `all 0.5s ease`,
           '.MuiTouchRipple-child': {
-            backgroundColor: youhaInverseGrey[100]
+            backgroundColor: youhaInverseGrey[600]
           }
           // '&:hover': {
           //   backgroundColor: 'transparent',

@@ -69,7 +69,7 @@ function MainHeader({ slides, navigation }: Props) {
               }}
             />
           </Box>
-          <Box sx={{ m: theme.spacing(0, -1, 0, 0) }}>
+          <Box sx={{ m: theme.spacing(0, -1.5, 0, 0) }}>
             <IconButton
               name="search"
               color={youhaInverseGrey[400]}

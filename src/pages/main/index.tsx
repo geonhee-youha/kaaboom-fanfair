@@ -30,6 +30,8 @@ import { HomeSlide } from "./home/home/home";
 import { ExploreSlide } from "./home/explore/home";
 import { FavoriteSlide } from "./home/favorite/home";
 import { AccountSlide } from "./home/account/home";
+import { ArtistSlide } from "../../components/templates/ArtistSlide";
+import MissionModal from "../../components/templates/MissionModal";
 
 export default function Main() {
   const [me, setMe] = useRecoilState(meState);
@@ -186,6 +188,8 @@ function Slides({ nav, stack, slides, navigation }: SlidesProps) {
         return item.name === "home" ? (
           item.nav === "search" ? (
             <></>
+          ) : item.nav === "upload" ? (
+            <></>
           ) : item.nav === "main" ? (
             item.stack === "home" ? (
               <HomeSlide key={index} item={item} navigation={navigation} />
@@ -199,8 +203,10 @@ function Slides({ nav, stack, slides, navigation }: SlidesProps) {
               <></>
             )
           ) : null
-        ) : item.name === "request" ? (
-          <></>
+        ) : item.name === "artist" ? (
+          <ArtistSlide key={index} item={item} navigation={navigation} />
+        ) : item.name === "mission" ? (
+          <MissionModal key={index} item={item} navigation={navigation} />
         ) : null;
       })}
     </Box>
